@@ -27,7 +27,6 @@ export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
 
   const settings = await client.getSingle("settings");
-  const settingsData = settings.data as any;
 
   return {
     title: settings.data.site_title || "Côte Royale Paris",
@@ -36,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "Discover the exquisite collection of luxury fragrances by Côte Royale Paris",
     openGraph: {
       images: isFilled.image(settings.data.fallback_og_image)
-        ? [settingsData.fallback_og_image.url]
+        ? [settings.data.fallback_og_image.url]
         : ["/og-image.png"],
     },
   };

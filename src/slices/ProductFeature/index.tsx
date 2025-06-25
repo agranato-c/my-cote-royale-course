@@ -93,7 +93,7 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
 
             </div>
             <p className="mt-4 text-gray-100" aria-label="Product price">
-              <span>{fragrance?.data.price}</span>
+              <span>{formattedPrice}</span>
             </p>
             
           </div>

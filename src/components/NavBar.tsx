@@ -51,7 +51,7 @@ const NavIcons = ({className = "", tabIndex}: NavIconsProps) => (
 // Added to fix error in layout.tsx
 //  import React from "react";
 //import { Simplify } from "@prismicio-types"; // only if you're using Simplify
-import { AllDocumentTypes, HomepageDocumentData, Simplify } from "../../prismicio-types"; // adjust path if needed
+// import { AllDocumentTypes, HomepageDocumentData, Simplify } from "../../prismicio-types"; // adjust path if needed
 //import { Link } from "next-view-transitions";
 
 type NavBarProps = {

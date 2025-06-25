@@ -1,13 +1,11 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { asImageSrc } from "@prismicio/client";
-import { PrismicRichText, PrismicText, SliceZone } from "@prismicio/react";
-import { asText } from "@prismicio/client/richtext";
+import { asImageSrc, asText } from "@prismicio/client";
+import { PrismicRichText, PrismicText } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
-import { PrismicNextImage } from "@prismicio/next";
 import { Bounded } from "@/components/Bounded";
+import { PrismicNextImage } from "@prismicio/next";
 import { FragranceAttributes } from "@/components/FragranceAttributes";
 import { formatPrice } from "@/utils/formatters";
 import { HiStar } from "react-icons/hi";
@@ -20,12 +18,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const client = createClient();
   const page = await client.getByUID("fragrance", uid).catch(() => notFound());
 
-  //return <SliceZone slices={page.data.slices} components={components} />;
   return (
     <Bounded className="py-10">
       <div className="grid grid-cols-1 items-center gap-10 pb-10 lg:grid-cols-2">
         <div className="relative mb-14 flex justify-center pb-10">
-
           <PrismicNextImage
             field={page.data.bottle_image}
             width={600}
@@ -37,7 +33,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         {/*Product info section */}
 
         <div className="text-white">
-          <h1 className="font-display mb-4 border-b bordneutral-700 pb-2 text-4xl md:text-5xl ">
+          <h1 className="font-display mb-4 border-b border-neutral-700 pb-2 text-4xl md:text-5xl">
             <PrismicText field={page.data.title} fallback="Fragrance" />
           </h1>
 
@@ -67,7 +63,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
               <div className="flex">
                 {[...Array(4)].map((_, index) => (
-                  <HiStar className="size-5 text-white" key={index}/>
+                  <HiStar className="size-5 text-white" key={index} />
                 ))}
                 <HiStar className="size-5 text-white/50" />
               </div>
@@ -80,11 +76,9 @@ export default async function Page({ params }: { params: Promise<Params> }) {
       </div>
 
       <OtherFragrances currentFragranceUid={uid} />
-
     </Bounded>
   )
-}
-
+};
 
 
 export async function generateMetadata({
