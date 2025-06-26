@@ -1,7 +1,8 @@
 "use client"
 import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
-import { gsap } from "gsap"; 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -13,9 +14,13 @@ type FadeInProps = {
   className?: string;
 };
 
-export const FadeIn = ({ children, start="top 80%", vars = {}, className }: FadeInProps) => {
+export const FadeIn = ({
+  children,
+  start = "top 80%", 
+  vars = {}, 
+  className 
+}: FadeInProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
-
   
   useGSAP(
     () => {
@@ -23,12 +28,10 @@ export const FadeIn = ({ children, start="top 80%", vars = {}, className }: Fade
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.to("containerRef.current", {
-          // scale: 1, // 100%
           duration: 5,
           opacity: 1,
           ease: "power3.out",
           y: 0,
-          stagger: 0,
           ...vars,
           scrollTrigger: {
             trigger: containerRef.current,
@@ -39,16 +42,13 @@ export const FadeIn = ({ children, start="top 80%", vars = {}, className }: Fade
 
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.to("containerRef.current", {
-          // scale: 1, // 100%
           duration: 0.5,
           opacity: 1,
           ease: "none",
           y: 0,
           stagger: 0,
-          // ...vars,
         });
       });
-
     }, 
     { scope: containerRef },
   );
@@ -57,6 +57,6 @@ export const FadeIn = ({ children, start="top 80%", vars = {}, className }: Fade
     <div ref={containerRef} className ={clsx("opacity-0", className)}>
       {children}
     </div>
-  )
+  );
 };
 
