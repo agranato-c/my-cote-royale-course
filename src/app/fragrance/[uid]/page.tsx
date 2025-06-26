@@ -8,7 +8,7 @@ import { Bounded } from "@/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
 import { FragranceAttributes } from "@/components/FragranceAttributes";
 import { formatPrice } from "@/utils/formatters";
-import { HiStar } from "react-icons/hi";
+import { HiStar } from "react-icons/hi2";
 import { OtherFragrances } from "@/components/OtherFragrances";
 
 type Params = { uid: string };
@@ -28,6 +28,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             height={600}
             priority
             className="absolute top-[90%] -scale-y-100 [mask-image:linear-gradient(to_bottom, rgba(0,0,0,0)_70%,rgba(0,0,0,.15)_100%)]"
+          />
+          <PrismicNextImage
+            field={page.data.bottle_image}
+            width={600}
+            height={600}
+            priority
+            className="relative"
           />
         </div>
         {/*Product info section */}
@@ -67,9 +74,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 ))}
                 <HiStar className="size-5 text-white/50" />
               </div>
-              <span>
-                4.4/5
-              </span>
+              <span> 4.4/5 </span>
             </div>
           </div>
         </div>
@@ -77,8 +82,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
       <OtherFragrances currentFragranceUid={uid} />
     </Bounded>
-  )
-};
+  );
+}
 
 
 export async function generateMetadata({
@@ -89,7 +94,7 @@ export async function generateMetadata({
   const { uid } = await params;
   const client = createClient();
   const page = await client.getByUID("fragrance", uid).catch(() => notFound());
-  const settings = await client.getSingle("settings")
+  const settings = await client.getSingle("settings");
 
   return {
     title: asText(page.data.title) + " | " + settings.data.site_title,
