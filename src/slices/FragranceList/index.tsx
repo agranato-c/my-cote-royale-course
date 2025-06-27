@@ -30,15 +30,14 @@ const FragranceList: FC<FragranceListProps> = ({ slice }) => {
         <RevealText
           field={slice.primary.heading}
           as="h2"
-          id={`fragrance-list-heading-${slice.id}
-          `}
+          id={`fragrance-list-heading-${slice.id}`}
           align="center"
           duration={1.5}
           staggerAmount={0.3}
           className="font-display text-5xl uppercase sm:text-6xl md:text-7xl lg:text-8xl"
         />
 
-        <div className="text-balancex mx-auto max-w-2xl text-lg text-gray-300">
+        <div className="mx-auto max-w-2xl text-lg text-balance text-gray-300">
           <PrismicRichText field={slice.primary.body} />
         </div>
 
@@ -52,7 +51,6 @@ const FragranceList: FC<FragranceListProps> = ({ slice }) => {
                 />
               );
             }
-            return null;
           })}
         </div>
       </div>
