@@ -9,7 +9,7 @@ import { components } from "@/slices";
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle("homepage").catch(() => notFound());
-
+  console.log("Page data:", page);
   return <SliceZone slices={page.data.slices} components={components} />;
 }
 
