@@ -108,9 +108,7 @@ const ScrollText: FC<ScrollTextProps> = ({ slice }) => {
                   </span>
                 ))}
                 {index < words.length - 1 ? (
-                  <span className="inline">
-                    & nbsp;
-                  </span>
+                  <span className="inline">&nbsp;</span>
                 ) : null}
               </span>
             ))}
