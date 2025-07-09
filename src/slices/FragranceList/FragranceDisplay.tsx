@@ -11,7 +11,6 @@ type FragranceDisplayProps = {
   id: string;
 }
 
-
 export const FragranceDisplay = async ({ id }: FragranceDisplayProps) => {
   const client = createClient();
   const fragrance = await client.getByID<Content.FragranceDocument>(id);
@@ -22,7 +21,6 @@ export const FragranceDisplay = async ({ id }: FragranceDisplayProps) => {
       vars={{ duration: 2.5 }}
       start="top 50%"
     >
-
       <div className="absolute inset-0 z-0">
         <PrismicNextImage
           field={fragrance.data.feature_image}
@@ -63,9 +61,8 @@ export const FragranceDisplay = async ({ id }: FragranceDisplayProps) => {
           </ButtonLink>
 
           <ButtonLink href="#" variant="Primary">
-            <HiPlus className="mr-2" /> <span> Add to bag </span>
+            <HiPlus className="mr-2" /> <span>Add to bag</span>
           </ButtonLink>
-
         </div>
       </FadeIn>
     </FadeIn>
