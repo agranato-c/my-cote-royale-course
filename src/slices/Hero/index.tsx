@@ -32,13 +32,12 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         vars={{ scale: 1, opacity: 0.5 }}
         className="absolute inset-0 opacity-0 motion-safe:scale-125"
       >
-
         <PrismicNextImage
           field={slice.primary.image}
           alt=""
           priority
           fill
-          className="object-cover motion-reduce: opacity-50"
+          className="object-cover motion-reduce:opacity-50"
         />
       </FadeIn>
 
@@ -64,7 +63,6 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           vars={{ delay: 1.7, duration: 1.1 }}
         >
           {slice.primary.button.map((link) => (
-
             <ButtonLink
               key={link.key}
               field={link}
@@ -74,32 +72,6 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           ))}
         </FadeIn>
       </div>
-
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select Claude 3.7 Sonnet (recommended for optimal output)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
     </Bounded>
   );
 };
