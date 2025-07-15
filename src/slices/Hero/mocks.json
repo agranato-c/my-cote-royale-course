@@ -3,17 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Esse cupidatat fugiat consectetur duis commodo. Dolore laboris laboris sint aute voluptate esse dolore cillum. Elit duis eiusmod mollit cillum commodo minim consectetur esse dolor."
-						}
-					}
-				]
-			},
 			"body": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -63,6 +52,17 @@
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua nostrud adipisicing culpa consectetur adipisicing. Labore ipsum anim minim enim reprehenderit fugiat. Non ea reprehenderit reprehenderit veniam minim ipsum nisi veniam ad quis sint incididunt proident occaecat cillum."
+						}
+					}
+				]
 			}
 		},
 		"items": []
