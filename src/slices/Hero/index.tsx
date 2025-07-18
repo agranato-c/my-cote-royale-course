@@ -28,7 +28,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="relative min-h-screen overflow-hidden bg-neutral-950"
     >
-      <FadeIn 
+      <FadeIn
         vars={{ scale: 1, opacity: 0.5 }}
         className="absolute inset-0 opacity-0 motion-safe:scale-125"
       >
@@ -45,7 +45,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         <RevealText
           field={slice.primary.heading}
           id="hero-heading"
-          className="font-display max-w-xl text-6xl leading-none text-neutral-50 md:text-7xl lg:text-8xl"
+          className="font-display max-w-2xl text-6xl leading-none text-neutral-50 md:text-7xl lg:text-8xl"
           staggerAmount={0.2}
           duration={1.7}
           as="h1"
@@ -57,17 +57,17 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         >
           <PrismicRichText field={slice.primary.body} />
         </FadeIn>
-
         <FadeIn
           className="mt-8 translate-y-5"
           vars={{ delay: 1.7, duration: 1.1 }}
         >
+          
           {slice.primary.button.map((link) => (
             <ButtonLink
               key={link.key}
               field={link}
               className="w-fit"
-              variant="Secondary"
+              variant={link.variant || "Primary"}
             />
           ))}
         </FadeIn>
